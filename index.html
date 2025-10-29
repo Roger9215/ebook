@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>As Aventuras Cósmicas de Léo e o Cometa Cintilante</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>As Aventuras Cósmicas de Léo e o Cometa Cintilante</h1>
+
+  <div class="container">
+    <!-- Painel de texto com virada -->
+    <div class="book">
+      <div class="page" id="page">
+        <div class="content" id="pageContent">
+          <h2>Introdução – O Sonho Estrelado de Léo</h2>
+          <p>Léo está na janela de seu quarto, olhando para o céu estrelado. Ele sonha em ser um astronauta. De repente, uma estrela cadente pousa em seu quintal — é o Cometa Cintilante, que está perdido. Léo decide ajudá-lo a voltar para casa.</p>
+        </div>
+      </div>
+      <div class="page-shadow"></div>
+    </div>
+
+    <!-- Painel de vídeo -->
+    <div class="video-container">
+      <video id="videoPlayer" width="500" controls autoplay></video>
+      <div class="controls">
+        <button onclick="anterior()">⬅ Anterior</button>
+        <span id="chapterCounter">Capítulo 1 de 7</span>
+        <button onclick="proximo()">Próximo ➡</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/player.js"></script>
+</body>
+</html>

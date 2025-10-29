@@ -1,0 +1,5 @@
+1. Abra o index.html em qualquer navegador.
+2. Use os botões "Anterior" e "Próximo" para navegar pelas páginas.
+3. Coloque os vídeos em videos/paginaX.mp4 conforme as instruções.
+4. Cada vídeo representa uma página da história "O Cogumelo que Brilhava".
+5. Pode substituir imagens ou áudios para personalizar a narração.
