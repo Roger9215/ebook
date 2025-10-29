@@ -1,140 +1,98 @@
-/* Estilo geral */
+/* -------------------------------------- */
+/* 1. CONFIGURAÇÃO GERAL E MOBILE FIRST   */
+/* -------------------------------------- */
 body {
-  background: radial-gradient(circle at top, #141436, #08081a);
-  color: #fff;
-  font-family: 'Comic Sans MS', cursive;
-  text-align: center;
-  padding: 30px;
-  overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    /* Faz o conteúdo ocupar toda a largura disponível */
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 h1 {
-  color: #00ffcc;
-  text-shadow: 0 0 20px #00ffcc;
-  margin-bottom: 40px;
+    font-size: 1.5em; /* Reduz o título para caber na tela */
+    text-align: center;
+    color: #333;
+    padding-bottom: 10px;
 }
 
-/* Layout */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
+/* Garante que o container de vídeo ocupe 100% da largura */
+.video-container {
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-/* --- LIVRO / PÁGINA --- */
-.book {
-  position: relative;
-  width: 500px;
-  height: 350px;
-  perspective: 1200px;
+/* O VÍDEO deve sempre ocupar 100% da sua área */
+#videoPlayer {
+    width: 100%;
+    height: auto; /* Mantém a proporção do vídeo */
+    max-width: 100%;
+}
+
+/* -------------------------------------- */
+/* 2. CONTROLES E BOTÕES                  */
+/* -------------------------------------- */
+.controls {
+    display: flex; /* Alinha botões e contador horizontalmente */
+    justify-content: space-between; /* Espaçamento entre os elementos */
+    align-items: center;
+    padding: 10px 0;
+}
+
+.controls button {
+    flex-grow: 1; /* Faz os botões crescerem igualmente */
+    padding: 10px 5px;
+    margin: 0 5px;
+    font-size: 0.9em;
+    white-space: nowrap; /* Evita que o texto quebre */
+}
+
+#chapterCounter {
+    flex-shrink: 0; /* Impede o contador de encolher */
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* -------------------------------------- */
+/* 3. O 'LIVRO' DE TEXTO                  */
+/* -------------------------------------- */
+.book-container {
+    width: 100%;
+    /* No mobile, o texto pode ficar mais "normal" e vertical */
 }
 
 .page {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #12122c, #0d0d1a);
-  border-radius: 10px;
-  box-shadow: 0 0 40px rgba(0,255,204,0.2);
-  transform-origin: left;
-  transition: transform 1.2s cubic-bezier(0.7, 0.2, 0.2, 1);
-  position: relative;
-  padding: 25px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 250px; /* Garante espaço para o texto */
+    box-sizing: border-box;
 }
 
-.page::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 20px;
-  background: linear-gradient(to left, rgba(255,255,255,0.05), transparent);
-  border-radius: 0 10px 10px 0;
-}
+/* -------------------------------------- */
+/* 4. MEDIA QUERY (Para telas maiores, se precisar de 2 colunas) */
+/* -------------------------------------- */
+/* Se a tela tiver 768px ou mais (tablets e desktops), o layout pode voltar a ser lado a lado */
+@media (min-width: 768px) {
+    .container { /* Reativar se decidir usar o container */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
 
-.page-shadow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  box-shadow: inset 30px 0 40px rgba(0,0,0,0.5);
-  pointer-events: none;
-}
+    .video-container, .book-container {
+        width: 45%; /* Divide o espaço */
+    }
 
-/* Texto */
-.page h2 {
-  color: #00ccff;
-  text-shadow: 0 0 10px #00ccff;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-.page p {
-  text-align: justify;
-  line-height: 1.6;
-  font-size: 1.05rem;
-}
-
-/* --- EFEITO DE VIRADA --- */
-.page.flip {
-  transform: rotateY(-180deg);
-}
-
-/* Fade da nova página */
-.page.fade {
-  opacity: 0;
-  transform: rotateY(180deg);
-}
-
-/* --- VÍDEO --- */
-.video-container {
-  flex: 1;
-  text-align: center;
-  animation: fadeIn 1s ease;
-}
-.video-container video {
-  max-width: 100%;
-  border: 3px solid #00ffcc;
-  border-radius: 12px;
-  box-shadow: 0 0 25px #00ffcc;
-}
-
-/* --- BOTÕES --- */
-.controls {
-  margin-top: 15px;
-}
-button {
-  background-color: #00ffcc;
-  color: #081010;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 6px;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-button:hover {
-  background-color: #00cc99;
-  transform: scale(1.05);
-}
-#chapterCounter {
-  color: #00ffcc;
-  margin: 0 10px;
-  font-weight: bold;
-}
-
-/* --- RESPONSIVO --- */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .book {
-    width: 90%;
-    height: auto;
-  }
+    /* Ajuste de fonte e margens para telas maiores */
+    h1 {
+        font-size: 2em; 
+    }
 }
