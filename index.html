@@ -4,12 +4,24 @@
   <meta charset="UTF-8">
   <title>As Aventuras Cósmicas de Léo e o Cometa Cintilante</title>
   <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>As Aventuras Cósmicas de Léo e o Cometa Cintilante</h1>
+  
+  <header>
+    <h1>As Aventuras Cósmicas de Léo e o Cometa Cintilante</h1>
+  </header>
 
-  <div class="container">
-    <!-- Painel de texto com virada -->
+  <div class="video-container">
+    <video id="videoPlayer" width="100%" controls autoplay></video> 
+    <div class="controls">
+      <button onclick="anterior()">⬅ Anterior</button>
+      <span id="chapterCounter">Capítulo 1 de 7</span>
+      <button onclick="proximo()">Próximo ➡</button>
+    </div>
+  </div>
+
+  <div class="book-container">
     <div class="book">
       <div class="page" id="page">
         <div class="content" id="pageContent">
@@ -17,17 +29,7 @@
           <p>Léo está na janela de seu quarto, olhando para o céu estrelado. Ele sonha em ser um astronauta. De repente, uma estrela cadente pousa em seu quintal — é o Cometa Cintilante, que está perdido. Léo decide ajudá-lo a voltar para casa.</p>
         </div>
       </div>
-      <div class="page-shadow"></div>
-    </div>
-
-    <!-- Painel de vídeo -->
-    <div class="video-container">
-      <video id="videoPlayer" width="500" controls autoplay></video>
-      <div class="controls">
-        <button onclick="anterior()">⬅ Anterior</button>
-        <span id="chapterCounter">Capítulo 1 de 7</span>
-        <button onclick="proximo()">Próximo ➡</button>
-      </div>
+      <div class="page-shadow"></div> 
     </div>
   </div>
 
